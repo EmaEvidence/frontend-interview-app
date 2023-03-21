@@ -1,10 +1,26 @@
 import React from 'react'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import logo from './logo.svg'
 import './App.css'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import Buyflow, { ProductIds } from './buyflow/Buyflow'
+import Devflow from './buyflow/DevFlow'
+import Designerflow from './buyflow/DesignerFlow'
+import { ProductIds } from './types'
 
 const App = () => {
+  const routes = [
+    {
+      path: '/buy/insurance_dev',
+      render: () => <Devflow productId={ProductIds.devIns} />,
+    },
+    {
+      path: '/buy/insurance_designer',
+      render: () => <Designerflow productId={ProductIds.devIns} />,
+    },
+    {
+      path: '/*',
+      render: () => <FlowsHome />,
+    },
+  ]
   return (
     <Router>
       <div className="App">
@@ -12,13 +28,11 @@ const App = () => {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <Switch>
-          <Route path="/buy/insurance_dev">
-            <Buyflow productId={ProductIds.devIns} />
-          </Route>
-          <Route path="/">
-            <p>Welcome to Getsafe's Developer Insurance</p>
-            <Link to="/buy/insurance_dev">Get started!</Link>
-          </Route>
+          {routes.map(({ path, render }, index) => (
+            <Route exact path={path} key={`${path}${index}`}>
+              {render()}
+            </Route>
+          ))}
         </Switch>
       </div>
     </Router>
@@ -26,3 +40,19 @@ const App = () => {
 }
 
 export default App
+
+const FlowsHome = () => {
+  return (
+    <div>
+      <p>Welcome to Getsafe Insurance</p>
+      <Link to="/buy/insurance_dev">
+        <h2>Developer Insurance</h2>
+        Get started!
+      </Link>
+      <Link to="/buy/insurance_designer">
+        <h2>Designer Insurance</h2>
+        Get started!
+      </Link>
+    </div>
+  )
+}
