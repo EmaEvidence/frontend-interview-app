@@ -42,7 +42,10 @@ const FlowBuilder: React.FC<BuyflowProps> = (props) => {
         )
       })}
       {currentStep === 'summary' && (
-        <SummaryStep collectedData={collectedData} productId={props.productId} />
+        <SummaryStep
+          collectedData={collectedData}
+          productId={props.productId}
+        />
       )}
     </>
   )
