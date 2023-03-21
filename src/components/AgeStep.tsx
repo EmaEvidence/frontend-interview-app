@@ -1,8 +1,9 @@
 import React from 'react'
+import { CBType } from '../types'
 import StepInput from './StepInput'
 
 interface AgeStepProps {
-  cb: (field: string, value: number) => void
+  cb: CBType
 }
 
 export const AgeStep: React.FC<AgeStepProps> = (props) => {

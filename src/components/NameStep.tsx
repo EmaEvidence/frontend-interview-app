@@ -1,8 +1,9 @@
 import React from 'react'
+import { CBType } from '../types'
 import StepInput from './StepInput'
 
 interface NameStepProps {
-  cb: (field: string, value: string) => void
+  cb: CBType
 }
 
 export const NameStep: React.FC<NameStepProps> = (props) => {
