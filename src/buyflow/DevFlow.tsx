@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { PRODUCT_IDS_TO_NAMES, ProductIds } from '../types'
+import { ProductIds } from '../types'
+import { PRODUCT_IDS_TO_NAMES } from '../consts'
 import { AgeStep, EmailStep, SummaryStep } from '../components'
 
 interface BuyflowProps {

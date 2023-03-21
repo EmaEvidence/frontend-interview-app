@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.summary-item {
+  text-transform: capitalize;
+}
+
+.input-grp {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin: auto;
+  text-align: left;
+}
+
+.input-grp span {
+  font-size: 12px;
+  color: red;
+  margin-bottom: 10px;
+}

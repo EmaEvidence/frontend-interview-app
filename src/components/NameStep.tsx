@@ -1,25 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
+import StepInput from './StepInput'
 
 interface NameStepProps {
   cb: (field: string, value: string) => void
 }
 
 export const NameStep: React.FC<NameStepProps> = (props) => {
-  const [name, setName] = useState('')
   return (
     <>
-      <div>
-        Name:{' '}
-        <input
-            placeholder='Firstname Lastname'
-          type="text"
-          onChange={({ target: { value } }) => {
-            setName(value)
-          }}
-          value={name}
-        ></input>
-      </div>
-      <button onClick={() => props.cb('name', name)}>Next</button>
+      <StepInput
+        placeholder="Firstname Lastname"
+        label="Name"
+        cb={(field: string, value: string) => {
+          props.cb(field, value)
+        }}
+        value=""
+        type="text"
+        isRequired={true}
+        name={'name'}
+        errorText={'Please enter your Firstname and Lastname to continue!'}
+      />
     </>
   )
 }

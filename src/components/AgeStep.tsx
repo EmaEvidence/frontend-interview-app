@@ -1,24 +1,24 @@
-import React, { useState } from 'react'
+import React from 'react'
+import StepInput from './StepInput'
 
 interface AgeStepProps {
   cb: (field: string, value: number) => void
 }
 
 export const AgeStep: React.FC<AgeStepProps> = (props) => {
-  const [age, setAge] = useState(0)
   return (
     <>
-      <div>
-        Age:{' '}
-        <input
-          type="number"
-          onChange={({ target: { value } }) => {
-            setAge(Number(value))
-          }}
-          value={age}
-        ></input>
-      </div>
-      <button onClick={() => props.cb('age', age)}>Next</button>
+      <StepInput
+        label="Age"
+        cb={(field: string, value: string) => {
+          props.cb(field, Number(value))
+        }}
+        value=""
+        type="number"
+        isRequired={true}
+        name={'age'}
+        errorText={'Please enter your age to continue!'}
+      />
     </>
   )
 }

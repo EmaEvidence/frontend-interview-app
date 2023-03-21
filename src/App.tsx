@@ -1,10 +1,11 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import logo from './logo.svg'
 import './App.css'
 import Devflow from './buyflow/DevFlow'
 import Designerflow from './buyflow/DesignerFlow'
 import { ProductIds } from './types'
+import { FlowsHome } from './components'
 
 const App = () => {
   const routes = [
@@ -14,7 +15,7 @@ const App = () => {
     },
     {
       path: '/buy/insurance_designer',
-      render: () => <Designerflow productId={ProductIds.devIns} />,
+      render: () => <Designerflow productId={ProductIds.designIns} />,
     },
     {
       path: '/*',
@@ -40,19 +41,3 @@ const App = () => {
 }
 
 export default App
-
-const FlowsHome = () => {
-  return (
-    <div>
-      <p>Welcome to Getsafe Insurance</p>
-      <Link to="/buy/insurance_dev">
-        <h2>Developer Insurance</h2>
-        Get started!
-      </Link>
-      <Link to="/buy/insurance_designer">
-        <h2>Designer Insurance</h2>
-        Get started!
-      </Link>
-    </div>
-  )
-}
