@@ -19,6 +19,7 @@ export const StepInput: React.FC<NameStepProps> = (props) => {
   useEffect(() => {
     setData(props.value)
   }, [props.value])
+
   return (
     <>
       <div className="input-grp">
@@ -36,10 +37,11 @@ export const StepInput: React.FC<NameStepProps> = (props) => {
         {error && <span>{props.errorText}</span>}
       </div>
       <button
+        type="submit"
         onClick={() => {
           if (
             props.isRequired &&
-            (!data || (props.pattern && new RegExp(props.pattern).test(data)))
+            !(props.pattern && new RegExp(props.pattern).test(data))
           ) {
             showError(true)
             return

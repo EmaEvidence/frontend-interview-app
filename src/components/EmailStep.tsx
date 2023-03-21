@@ -17,6 +17,7 @@ export const EmailStep: React.FC<EmailStepProps> = (props) => {
         type="email"
         isRequired={true}
         name={'email'}
+        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
         errorText={'Please enter your Email to continue!'}
       />
     </>

@@ -18,6 +18,7 @@ export const NameStep: React.FC<NameStepProps> = (props) => {
         type="text"
         isRequired={true}
         name={'name'}
+        pattern="^[a-zA-Z]+ [a-zA-Z]+$"
         errorText={'Please enter your Firstname and Lastname to continue!'}
       />
     </>

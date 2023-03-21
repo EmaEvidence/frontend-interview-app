@@ -17,6 +17,7 @@ export const AgeStep: React.FC<AgeStepProps> = (props) => {
         type="number"
         isRequired={true}
         name={'age'}
+        pattern="[0-9]{1,3}"
         errorText={'Please enter your age to continue!'}
       />
     </>
