@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ProductIds } from '../types'
 
 interface SummaryStepProps {
   collectedData: Record<string, string | number>
+  productId: ProductIds
 }
 
 export const SummaryStep: React.FC<SummaryStepProps> = (props) => {
@@ -14,7 +16,7 @@ export const SummaryStep: React.FC<SummaryStepProps> = (props) => {
         </div>
       ))}
       <div>
-        <Link to="/purchased=dev_ins">Purchase</Link>
+        <Link to={`/purchased=${props.productId}`}>Purchase</Link>
       </div>
     </>
   )
